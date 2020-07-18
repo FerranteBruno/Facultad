@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1593382248 source:d:\trabajo practico integrador\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	"funcionesvarias.h"
+
+1593382210 d:\trabajo practico integrador\funcionesvarias.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	<ctime>
+
+1595109828 source:d:\tplab1\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	"funcionesvarias.h"
+	"CategoriasGral.h"
+
+1595111393 d:\tplab1\funcionesvarias.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	<ctime>
+	<windows.h>
+
+1594938815 d:\tplab1\categoriasgral.h
+	<stdio.h>
+	<stdlib.h>
+	<cstring>
+	<ctime>
+

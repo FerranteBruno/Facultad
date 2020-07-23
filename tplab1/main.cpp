@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <cstring>
 #include "funcionesvarias.h"
-#include "CategoriasGral.h"
 
 using namespace std;
 
@@ -60,24 +59,38 @@ int main(){
         case 2:
 
         //Jug 1
+        gotoxy(28,11);
         cout<<"Ingrese el nombre del jugador 1:"<<endl;
+        gotoxy(28,12);
         cin>>nJ1;
+        gotoxy(28,13);
         cout<<"Ingrese el apellido del jugador 1:"<<endl;
+        gotoxy(28,14);
         cin>>aJ1;
+        gotoxy(28,15);
         cout<<"Jugador 1:"<<endl;
+        gotoxy(28,16);
         cout<<nJ1<<" "<<aJ1<<endl;
+        gotoxy(28,17);
         //Jug 2
         cout<<"Ingrese el nombre del jugador 2:"<<endl;
+        gotoxy(28,18);
         cin>>nJ2;
+        gotoxy(28,19);
         cout<<"Ingrese el apellido del jugador 2:"<<endl;
+        gotoxy(28,20);
         cin>>aJ2;
+        gotoxy(28,21);
         cout<<"Jugador 2:"<<endl;
+        gotoxy(28,22);
         cout<<nJ2<<" "<<aJ2<<endl;
+        gotoxy(28,23);
         b=0;
         runJ2(dJ1, categoriasJ1, categoriasJ2,turnos, turnos2, dG1, dG2, descarte, tirada, tiradaGuardada, eleccionTirada, nJ1, aJ1, nJ2, aJ2, catGuardado);
         break;
 
         default:
+            gotoxy(28,24);
             cout<<"Numero invalido de jugadores"<<endl;
         break;
         }

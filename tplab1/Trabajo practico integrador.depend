@@ -13,15 +13,14 @@
 	<cstring>
 	<ctime>
 
-1595109828 source:d:\tplab1\main.cpp
+1595543457 source:d:\tplab1\main.cpp
 	<iostream>
 	<stdio.h>
 	<stdlib.h>
 	<cstring>
 	"funcionesvarias.h"
-	"CategoriasGral.h"
 
-1595111393 d:\tplab1\funcionesvarias.h
+1595543342 d:\tplab1\funcionesvarias.h
 	<iostream>
 	<stdio.h>
 	<stdlib.h>

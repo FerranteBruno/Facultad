@@ -73,6 +73,7 @@ void TirarDados(int dJ1[5], int dG1[5], int &tirada, int &tiradaGuardada, int &e
         ordenarDados(dG1);
         cout<<endl;
     }
+    ///significa que quiere volver a tirar todos los dados!!!
     if(eleccionTirada==1){
         dadosEnCero(dG1, tam);
 
@@ -136,12 +137,6 @@ void guardarDados(int dG1[5], int dJ1[5], int descarte, int &tirada){
 void seleccionTirada(int dJ1[5],int dG1[5],int categoriasJ1[10],int descarte,int &tirada, int &turnos, int &tiradaGuardada, int &eleccionTirada, int &catGuardado){
     eleccionTirada=0;
 
-    /*if(tirada<2){
-        int i, j;
-            for(j=0;j<5;j++){
-                dG1[j]=dJ1[j];
-            }
-*/
     cout<<"\n¿Desea volver a tirar dados? \nPresiona 1 = TODOS LOS DADOS | Presiona 2 = SELECCIONAR DADOS\n | 3 = GUARDAR TIRADA | 9 = Ver Categorias\n Si tiene Generala servida, guarde la tirada"<<endl;
     mostrarDados(dG1);
     cin>>eleccionTirada;
@@ -179,6 +174,8 @@ void seleccionTirada(int dJ1[5],int dG1[5],int categoriasJ1[10],int descarte,int
                 break;
 
             default:
+                cout<<"Seleccione una opción válida!"<<endl;
+                system("pause");
                 break;
 
         }
@@ -225,6 +222,8 @@ void seleccionTirada2(int dJ1[5],int dG1[5],int categoriasJ1[10],int descarte,in
                 seleccionTirada2(dJ1, dG1, categoriasJ1, descarte, tirada, turnos2, tiradaGuardada, eleccionTirada, catGuardado);
                 break;
             default:
+                cout<<"Seleccione una opción válida!"<<endl;
+                system("pause");
                 break;
 
         }
@@ -451,10 +450,11 @@ void turnoJugador1(int dJ1[5], int categoriasJ1[10], int &turnos, int dG1[5], in
             cout<<"Primera tirada!"<<endl;
             ///Realizo una tirada
             TirarDados(dJ1, dG1, tirada, tiradaGuardada, eleccionTirada);
-            ///Muestro esa tirada
+            ///guarda los dados de la primera tirada en dG1
             for(i=0;i<5;i++){
                     dG1[i]=dJ1[i];
                 }
+                ///Muestro esa tirada
             mostrarDados(dJ1);
             ///pongo un system pause, porque sino sigue tirando el mismo numero
             system("pause");
@@ -566,13 +566,12 @@ void turnoJugador2(int dJ1[5], int categoriasJ2[10], int &turnos2, int dG2[5], i
 
 ///* Acá empieza el juego*///
 void runJ1(int dJ1[5], int categoriasJ1[10], int &turnos, int dG1[5], int descarte, int &tirada, int &tiradaGuardada, int eleccionTirada, string nJ1, string aJ1, int &catGuardado){
-    int start=0;
     int puntajeFinal=0;
     int i;
     gotoxy(28,17);
-    cout<<"Pulse cualquier tecla para empezar!"<<endl;
+    cout<<"Pulse cualquier tecla para jugar"<<endl;
     gotoxy(28,18);
-    cin>>start;
+    system("pause");
     const int tam=10;
     dadosEnCero(categoriasJ1, tam);
 
@@ -583,6 +582,10 @@ void runJ1(int dJ1[5], int categoriasJ1[10], int &turnos, int dG1[5], int descar
 
         system("cls");
         cout<<"FINALIZO EL JUEGO"<<endl;
+        if(categoriasJ1[9]>50){
+                           cout<<"Gano "<<nJ1<<" "<<aJ1<<endl;
+                           return;
+                        }
         cout<<"Puntaje por categoria:"<<endl;
         for(i=0;i<10;i++){
             cout<<"\nCategoría "<<i+1<<": \t"<<"["<<categoriasJ1[i]<<"]"<<endl;
@@ -600,7 +603,7 @@ void runJ2(int dJ1[5], int categoriasJ1[10], int categoriasJ2[10], int &turnos, 
     int start=0;
     int puntajeFinal=0, puntajeFinal2=0;
     int i;
-    cout<<"Ingrese '1' para tirar los dados, '0' para salir"<<endl;
+    cout<<"Ingrese '1' para tirar los dados"<<endl;
     cin>>start;
     const int tam=10;
     dadosEnCero(categoriasJ1, tam);
@@ -612,8 +615,8 @@ void runJ2(int dJ1[5], int categoriasJ1[10], int categoriasJ2[10], int &turnos, 
                 turnoJugador1(dJ1, categoriasJ1, turnos, dG1, descarte, tirada, tiradaGuardada, eleccionTirada, nJ1, aJ1, catGuardado);
                 turnoJugador2(dJ1, categoriasJ2, turnos2, dG2, descarte, tirada, tiradaGuardada, eleccionTirada, nJ2, aJ2, catGuardado);
 
-                if(categoriasJ1[9]!=0 && categoriasJ2[9]!=0 && categoriasJ1[9]==categoriasJ2[9]){
-                    cout<<"Habeis empatao, tío"<<endl;
+                if(categoriasJ1[9]>50 && categoriasJ2[9]>50 && categoriasJ1[9]==categoriasJ2[9]){
+                    cout<<"Empate!"<<endl;
                     return;
                 }else{
                     if(categoriasJ1[9]!=0 || categoriasJ2[9]!=0){
